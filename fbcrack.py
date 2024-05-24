@@ -2,11 +2,11 @@
 # -*- coding with python 3.11 -*-
 
 ### --- [ INFORMASI ] --- ###
-Author = "Gevendra Bhavedi"
-Github = "github.com/gevendra115"
-Facebook = "facebook.com/gevendra-bhavedi"
+Author = "Mot Mot Oyamat"
+Github = "github.com/Grathegreat"
+Facebook = "facebook.com/Mot.mot.oyamat"
 Script = "Script Brute Force Account Facebook"
-Create = "26 Fab 2024"
+Create = "25 May 2024"
 
 ### --- [ IMPORT LIBRARY ] --- ###
 import requests, re, random, sys, os, time, string, subprocess, bs4
@@ -84,14 +84,14 @@ def ua_fb():
 def menu_utama():
 	os.system('clear' if 'linux' in sys.platform.lower() else 'cls')
 	print(f'''{H}
- -------------------------------------{h}By @gevendra115---- 
+ -------------------------------------{H}By @Grathegreat---- 
    _____                         _        ______   ____  
   / ____|                       | |      |  ____| |  _ \ 
  | |       _ __    __ _    ___  | | __   | |__    | |_) |
  | |      | '__|  / _` |  / __| | |/ /   |  __|   |  _ < 
  | |____  | |    | (_| | | (__  |   <    | |      | |_) |
   \_____| |_|     \__,_|  \___| |_|\_\   |_|      |____/
--------------------------------------By @gevendra115---- 
+-------------------------------------By @Grathegreat---- 
                                                          
                                                          
                           
