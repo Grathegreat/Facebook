@@ -126,7 +126,7 @@ def cek_hasil():
 		file = nom[int(abc)-1]
 		try:buka = open('/sdcard/FBCrack OK/'+file,'r').read().splitlines()
 		except: exit(f"[{M}!{P}] The file has no results, okay")
-		for data in buka: nox += 1; print(f"[{H}{nook}] {data}")	
+		for data in buka: nox += 1; print(f"[{H}{nox}{P}] {data}")	
 	elif one in ['2','02']:
 		try:ok = os.listdir('/sdcard/FBCrack CP')
 		except:sys.exit(f"[{M}!{P}] No results")
